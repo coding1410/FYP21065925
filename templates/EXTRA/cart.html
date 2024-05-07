@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Your Cart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <h2>Your Shopping Cart</h2>
+            <nav><a href="{{ url_for('shop') }}">Continue Shopping</a></nav>
+        </header>
+
+        <div id="main">
+            {% if cart_items %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr>
+                                <td>
+                                    <img src="{{ item.Product.image }}" alt="{{ item.Product.name }}" style="height: 50px;">
+                                    {{ item.Product.name }}
+                                </td>
+                                <td>
+                                    <input type="number" value="{{ item.Cart.quantity }}" min="1" id="quantity_{{ item.Cart.id }}">
+                                </td>
+                                <td>${{ item.Product.price }}</td>
+                                <td>${{ item.Cart.quantity * item.Product.price }}</td>
+                                <td>
+                                    <button onclick="updateQuantity('{{ item.Cart.id }}')">Update</button>
+                                    <button onclick="removeFromCart('{{ item.Cart.id }}')">Remove</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3>Total: ${{ total }}</h3>
+                <button onclick="checkout()">Checkout</button>
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </div>
+
+        <footer id="footer">
+            <nav><a href="{{ url_for('homepage') }}">Back to Home</a></nav>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+</body>
+</html>

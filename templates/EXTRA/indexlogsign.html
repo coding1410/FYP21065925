@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylelogsign.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <div class="login form">
+      <h2>Login</h2>
+      <form action="/form_login" method="post">
+        <input type="text" placeholder="Enter your username" name="username" required>
+        <input type="password" placeholder="Enter your password" name="password" required>
+        <input type="submit" value="Login">
+        <a href="#">Forgot password?</a>
+      </form>
+      <p>Don't have an account? <a href="#" onclick="toggleForms()">Signup</a></p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="registration form" style="display:none;">
+      <h2>Signup</h2>
+      <form action="/register" method="post">
+        <input type="text" placeholder="Enter your name" name="name" required>
+        <input type="email" placeholder="Enter your email" name="email" required>
+        <input type="password" placeholder="Create a password" name="password" required>
+        <input type="password" placeholder="Confirm your password" name="confirm_password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const loginForm = document.querySelector('.login.form');
+      const registrationForm = document.querySelector('.registration.form');
+      loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+      registrationForm.style.display = registrationForm.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

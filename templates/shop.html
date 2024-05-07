@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Online Shopping for Your Pets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="/" class="logo"><strong>Dogtor</strong> <span>Your Canine Health Companion</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/records">Vet Records</a></li>
+                <li><a href="/consultation">Vet Consultation</a></li>
+                <li><a href="/shop">Online Pet Store</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="/getstarted" class="button primary fit">Get Started</a></li>
+                <li><a href="/login" class="button fit">Log In</a></li>
+                <li><a href="/signup" class="button fit">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+                    <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="online shop" />
+                </span>
+                <header class="major">
+                    <h1>Online Shopping</h1>
+                </header>
+                <div class="content">
+                    <p>Explore our online pet store for a wide range of high-quality pet supplies. From premium food and treats to stylish accessories, we've got everything your pet needs. Enjoy the convenience of doorstep delivery and give your furry companion the best with our online shopping experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+            <br> Unfortunately this page is not functional as yet but this is an idea of what the page will look like.
+            <section class="products">
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/dogfood.jpg') }}" alt="dog food" />
+                        <h2>Premium Dog Food</h2>
+                        <p>Category: Food</p>
+                        <p class="price">£22.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/nyloncollar.jpg') }}" alt="collar" />
+                        <h2>Adjustable Nylon Dog Collar</h2>
+                        <p>Category: Accessories</p>
+                        <p class="price">£9.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/chewtoys.jpg') }}" alt="chew toys" />
+                        <h2>Interactive Chew Toys Pack</h2>
+                        <p>Category: Toys</p>
+                        <p class="price">£14.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/dogbed.jpg') }}" alt="dog bed" />
+                        <h2>Orthopedic Dog Bed</h2>
+                        <p>Category: Bedding</p>
+                        <p class="price">£29.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 5 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/dogtreats.jpg') }}" alt="dog treats" />
+                        <h2>Natural Dog Treats Variety Pack</h2>
+                        <p>Category: Treats</p>
+                        <p class="price">£12.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/dogleash.jpg') }}" alt="dog leash" />
+                        <h2>Reflective Dog Leash</h2>
+                        <p>Category: Accessories</p>
+                        <p class="price">£11.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 7 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/groomingset.jpg') }}" alt="grooming set" />
+                        <h2>Complete Dog Grooming Set</h2>
+                        <p>Category: Grooming</p>
+                        <p class="price">£22.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 8 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/trainingpads.jpg') }}" alt=" traingin pads" />
+                        <h2>Puppy Training Pads</h2>
+                        <p>Category: Training</p>
+                        <p class="price">£15.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 9 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/travelcarrier.jpg') }}" alt="travel carrier" />
+                        <h2>Soft-Sided Dog Travel Carrier</h2>
+                        <p>Category: Travel</p>
+                        <p class="price">£27.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- Product 10 -->
+                    <div class="product">
+                        <img src="{{ url_for('static', filename='images/dograincoat.jpg') }}" alt="dog raincoat" />
+                        <h2>Waterproof Dog Raincoat</h2>
+                        <p>Category: Apparel</p>
+                        <p class="price">£19.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<!-- Contact Information in three columns -->
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					<!-- Phone -->
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<span>(44) 7387201765</span>
+					</div>
+					<!-- Address -->
+					<div class="contact-method">
+						<h3>Address</h3>
+						<span>123 Dog Street<br>Barkington, BD 12345<br>United States</span>
+					</div>
+					<!-- Social Icons -->
+					<div class="contact-method">
+						<ul class="icons">
+							<li><a href="static/images/twitter.png" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="static/images/fb.png" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="static/images/instagram.png" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Quick links footer -->
+				<ul class="footer-links">
+					<li><a href="{{ url_for('homepage') }}">Home</a></li>
+					<li><a href="{{ url_for('records') }}">Records</a></li>
+					<li><a href="{{ url_for('consultation') }}">Consultation</a></li>
+					<li><a href="{{ url_for('shop') }}">Shop</a></li>
+                    <li><a href="{{ url_for('nutrition') }}">Nutrition Guide</a></li>
+				</ul>
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; DOGTOR</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

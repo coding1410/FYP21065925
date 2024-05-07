@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <form method="post">
+        <h2>Sign Up</h2>
+        Full Name: <input type="text" name="full_name" required><br>
+        Phone Number: <input type="text" name="phone_number" required><br>
+        Email: <input type="email" name="email" required><br>
+        Address: <input type="text" name="address" required><br>
+        <br>
+
+        <h3>Pet Details</h3>
+        Pet Name: <input type="text" name="pet_name" required><br>
+        Breed: <input type="text" name="breed" required><br>
+        Date of Birth: <input type="date" name="dob" required><br>
+        Primary Vet: <input type="text" name="primary_vet" required><br>
+        <br>
+
+        <h3>User Credentials</h3>
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        Confirm Password: <input type="password" name="confirm_password" required><br>
+        <br>
+        <input type="submit" value="Sign Up">
+        <br>
+        <br>
+        <a href="/login">Already have an account? Log In</a> <!-- Link to log in if the user already has an account -->
+    </form>
+
+</body>
+</html>

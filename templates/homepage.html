@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Dogtor - Your Canine Health Companion</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    <link rel="stylesheet" href="/static/css/fontawesome-all.min.css">
+    <style>
+        #welcome-message {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            background-color: #4CAF50; /* Added background color for visibility */
+            border-radius: 8px;
+            padding: 10px 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Welcome Message -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div id="welcome-message" class="{{ category }}">{{ message }}</div>
+                <script>
+                    const welcomeMsg = document.getElementById('welcome-message');
+                    welcomeMsg.style.display = 'block';
+                    setTimeout(function() {
+                        welcomeMsg.style.display = 'none';
+                    }, 10000); // Display message for 10 seconds
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="{{ url_for('homepage') }}" class="logo"><strong>Dogtor</strong> <span>Your Canine Health Companion</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                <li><a href="{{ url_for('records') }}">Vet Records</a></li>
+                <li><a href="{{ url_for('consultation') }}">Vet Consultation</a></li>
+                <li><a href="{{ url_for('shop') }}">Online Pet Store</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="{{ url_for('getstarted') }}" class="button primary fit">Get Started</a></li>
+                <li><a href="{{ url_for('login') }}" class="button fit">Log In</a></li>
+                <li><a href="{{ url_for('signup') }}" class="button fit">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <section id="banner" class="major">
+            <div class="inner">
+                <header class="major">
+                    <h1>Welcome to Dogtor</h1>
+                </header>
+                <div class="content">
+                    <p>Your Canine Health Companion. Providing comprehensive health solutions for your furry friends.</p>
+                    <ul class="actions">
+                        <li><a href="#one" class="button next scrolly">Get Started</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- One -->
+			<section id="one" class="tiles">
+				<article>
+					<span class="image">
+						<img src="{{ url_for('static', filename='images/records.jpeg') }}" alt="Record Image" />
+					</span>
+					<header class="major">
+						<h3><a href="{{ url_for('records') }}" class="link">Vet Records</a></h3>
+						<p>Keep your dog's health records organized and accessible.</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="{{ url_for('static', filename='images/consultation.jpeg') }}" alt="Consultation Image" />
+					</span>
+					<header class="major">
+						<h3><a href="{{ url_for('consultation') }}" class="link">Vet Consultation</a></h3>
+						<p>Schedule virtual consultations with certified veterinarians.</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="{{ url_for('static', filename='images/supplies.jpeg') }}" alt="Supplies Image" />
+					</span>
+					<header class="major">
+						<h3><a href="{{ url_for('shop') }}" class="link">Online Pet Store</a></h3>
+						<p>Explore our marketplace for all your pet's needs.</p>
+					</header>
+				</article>
+                <article>
+                    <span class="image">
+                        <img src="{{ url_for('static', filename='images/nutrition.png') }}" alt="Nutrition Image" />
+                    </span>
+                    <header class="major">
+                        <h3><a href="{{ url_for('nutrition') }}" class="link">Nutrition Guide</a></h3>
+                        <p>Find a basic guide for your dog breed.</p>
+                    </header>
+                </article>
+			</section>			
+        </div>
+
+        <!-- Two -->
+        <section id="two">
+            <div class="inner">
+                <header class="major">
+                    <h2>About Dogtor</h2>
+                </header>
+                <p>Dogtor is your one-stop solution for all your canine health needs. We provide vet records management, virtual consultations, and a marketplace for pet supplies, all in one place. Sign up today to enhance your dog's well-being.</p>
+                <ul class="actions">
+                    <li><a href="{{ url_for('learnmore') }}" class="button next">Learn More</a></li>
+                </ul>    
+            </div>
+        </section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<!-- Contact Information in three columns -->
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					<!-- Phone -->
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<span>(44) 7387201765</span>
+					</div>
+					<!-- Address -->
+					<div class="contact-method">
+						<h3>Address</h3>
+						<span>123 Dog Street<br>Barkington, BD 12345<br>United States</span>
+					</div>
+					<!-- Social Icons -->
+					<div class="contact-method">
+						<ul class="icons">
+							<li><a href="static/images/twitter.png" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="static/images/fb.png" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="static/images/instagram.png" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Quick links footer -->
+				<ul class="footer-links">
+					<li><a href="{{ url_for('homepage') }}">Home</a></li>
+					<li><a href="{{ url_for('records') }}">Records</a></li>
+					<li><a href="{{ url_for('consultation') }}">Consultation</a></li>
+					<li><a href="{{ url_for('shop') }}">Shop</a></li>
+                    <li><a href="{{ url_for('nutrition') }}">Nutrition Guide</a></li>
+				</ul>
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; DOGTOR</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

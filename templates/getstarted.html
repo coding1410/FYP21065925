@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Online Shopping for Your Pets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="/" class="logo"><strong>Dogtor</strong> <span>Your Canine Health Companion</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/records">Vet Records</a></li>
+                <li><a href="/consultation">Vet Consultation</a></li>
+                <li><a href="/shop">Online Pet Store</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="/getstarted" class="button primary fit">Get Started</a></li>
+                <li><a href="/login" class="button fit">Log In</a></li>
+                <li><a href="/signup" class="button fit">Sign Up</a></li>
+            </ul>
+        </nav>
+
+		<!-- Banner -->
+		<section id="banner" class="style2">
+			<div class="inner">
+				<span class="image">
+					<img src="images/about_banner.jpg" alt="About Dogtor" />
+				</span>
+				<header class="major">
+					<h1>Get Started with Dogtor</h1>
+				</header>
+				<div class="content">
+					<p>Discover how Dogtor can empower your canine's health for a happier and healthier life.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- How Dogtor Works -->
+		<section id="how-it-works">
+			<div class="inner">
+				<header class="major">
+					<h2>How Dogtor Works</h2>
+				</header>
+				<p>Using Dogtor is easy and beneficial for both you and your canine companion. Here's a simple guide to get started:</p>
+				<!-- Include steps or instructions on how to use Dogtor -->
+				<ol>
+					<li>Sign up for a Dogtor account to access a range of canine health services.</li>
+					<li>Explore the "Vet Records" section to manage your pet's health history conveniently.</li>
+					<li>Book a virtual consultation with our experienced veterinarians in the "Vet Consultation" section.</li>
+					<li>Visit the "Online Pet Store" to find quality supplies and products for your furry friend.</li>
+					<li>Experience the convenience of having all your pet's health needs in one place!</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- Benefits of Dogtor -->
+		<section id="benefits">
+			<div class="inner">
+				<header class="major">
+					<h2>Benefits of Dogtor</h2>
+				</header>
+				<p>Why choose Dogtor for your canine companion?</p>
+				<!-- Include key benefits or features of Dogtor -->
+				<ul>
+					<li>Comprehensive Vet Records Management.</li>
+					<li>Convenient Virtual Consultations with Experienced Veterinarians.</li>
+					<li>Access to a Trusted Online Pet Store for Your Pet's Needs.</li>
+					<li>User-Friendly Interface for Easy Navigation.</li>
+					<li>Community Support and Engagement for Dog Lovers.</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Get Started CTA -->
+		<section id="get-started">
+			<div class="inner">
+				<header class="major">
+					<h2>Ready to Get Started?</h2>
+				</header>
+				<p>Join Dogtor today and take the first step towards a healthier and happier life for your furry friend!</p>
+				<ul class="actions stacked">
+					<li><a href="{{ url_for('signup') }}" class="button primary fit">Sign Up Now</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<!-- Contact Information in three columns -->
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					<!-- Phone -->
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<span>(44) 7387201765</span>
+					</div>
+					<!-- Address -->
+					<div class="contact-method">
+						<h3>Address</h3>
+						<span>123 Dog Street<br>Barkington, BD 12345<br>United States</span>
+					</div>
+					<!-- Social Icons -->
+					<div class="contact-method">
+						<ul class="icons">
+							<li><a href="static/images/twitter.png" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="static/images/fb.png" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="static/images/instagram.png" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Quick links footer -->
+				<ul class="footer-links">
+					<li><a href="{{ url_for('homepage') }}">Home</a></li>
+					<li><a href="{{ url_for('records') }}">Records</a></li>
+					<li><a href="{{ url_for('consultation') }}">Consultation</a></li>
+					<li><a href="{{ url_for('shop') }}">Shop</a></li>
+					<li><a href="{{ url_for('nutrition') }}">Nutrition Guide</a></li>
+				</ul>
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; DOGTOR</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+</html>

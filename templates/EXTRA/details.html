@@ -1,0 +1,27 @@
+<!-- templates/details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/details_style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <form action="{{ url_for('details') }}" method="post">
+      <h1>Owner Details</h1>
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="phone_number" placeholder="Phone Number" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <h1>Dog Details</h1>
+      <input type="text" name="dog_name" placeholder="Dog's Name" required>
+      <input type="number" name="dog_age" placeholder="Age in Dog Years" required>
+      <input type="text" name="breed" placeholder="Breed" required>
+      <input type="date" name="dob" placeholder="Date of Birth" required>
+      <button type="submit">Submit Details</button>
+    </form>
+  </div>
+</body>
+</html>

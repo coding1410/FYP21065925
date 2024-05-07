@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Online Shopping for Your Pets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="/" class="logo"><strong>Dogtor</strong> <span>Your Canine Health Companion</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/records">Vet Records</a></li>
+                <li><a href="/consultation">Vet Consultation</a></li>
+                <li><a href="/shop">Online Pet Store</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="/getstarted" class="button primary fit">Get Started</a></li>
+                <li><a href="/login" class="button fit">Log In</a></li>
+                <li><a href="/signup" class="button fit">Sign Up</a></li>
+            </ul>
+        </nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Vet Consultations</h1>
+							</header>
+							<div class="content">
+								<p>Connect with experienced veterinarians from the comfort of your home. 
+									Schedule virtual consultations, discuss your pet's health concerns, and receive professional advice. 
+									Prioritize your pet's well-being with our convenient and reliable vet consultation services.
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Vet Consultation Page -->
+					<section id="vet-consultation">
+						<div class="inner">
+							<header class="major">
+								<h2>Vet Consultation</h2>
+							</header>
+							<div class="content">
+								<!-- Consultation Form -->
+								<form id="consultation-form" method="post" action="{{ url_for('submit_consultation') }}">
+									<label for="date">Select Date:</label>
+									<input type="date" name="appointment_date" min="{{ current_date }}">
+									<label for="time">Select Time:</label>
+									<input type="time" id="time" name="time" required onchange="updateTextColor(this)" min="08:30" max="18:00">
+
+									<label for="reason">Reason for Consultation:</label>
+									<select id="reason" name="reason" required>
+										<option value="general-checkup">General Checkup</option>
+										<option value="vaccination-query">Vaccination Query</option>
+										<option value="behavioral-issue">Behavioral Issue</option>
+										<!-- Add more options as needed -->
+									</select>
+
+									<label for="message">Message to Vet:</label>
+									<textarea id="message" name="message" required></textarea>
+
+									<button type="submit">Schedule Consultation</button>
+								</form>
+
+									<!-- Chat Feature -->
+									<div id="chat-container">
+										<!-- Chat UI goes here -->
+										<p>Chat with a Vet will be integrated here.</p>
+									</div>									
+
+								<!-- Vet Locator using OpenStreetMap -->
+								<div id="mapid" style="height: 180px;"></div>
+								<script>
+									var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+									L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+										maxZoom: 19,
+										attribution: '© OpenStreetMap'
+									}).addTo(mymap);
+								
+									// Example marker
+									var marker = L.marker([51.5, -0.09]).addTo(mymap);
+									marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+								</script>								
+							</div>
+						</div>
+					</section>
+
+					<script>
+						function updateTextColor(element) {
+							// Change text color to black when date or time is selected
+							if (element.value !== '') {
+								element.style.color = 'black';
+							}
+						}
+
+						function getCurrentDate() {
+							const today = new Date();
+							const year = today.getFullYear();
+							let month = (today.getMonth() + 1).toString().padStart(2, '0');
+							let day = today.getDate().toString().padStart(2, '0');
+							return `${year}-${month}-${day}`;
+						}
+					</script>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<!-- Contact Information in three columns -->
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					<!-- Phone -->
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<span>(44) 7387201765</span>
+					</div>
+					<!-- Address -->
+					<div class="contact-method">
+						<h3>Address</h3>
+						<span>123 Dog Street<br>Barkington, BD 12345<br>United States</span>
+					</div>
+					<!-- Social Icons -->
+					<div class="contact-method">
+						<ul class="icons">
+							<li><a href="static/images/twitter.png" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="static/images/fb.png" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="static/images/instagram.png" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Quick links footer -->
+				<ul class="footer-links">
+					<li><a href="{{ url_for('homepage') }}">Home</a></li>
+					<li><a href="{{ url_for('records') }}">Records</a></li>
+					<li><a href="{{ url_for('consultation') }}">Consultation</a></li>
+					<li><a href="{{ url_for('shop') }}">Shop</a></li>
+					<li><a href="{{ url_for('nutrition') }}">Nutrition Guide</a></li>
+				</ul>
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; DOGTOR</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<!-- Before loading the page, set the min attribute using JavaScript -->
+			<input type="date" id="appointment_date" name="appointment_date">
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					const dateInput = document.getElementById('appointment_date');
+					dateInput.min = getCurrentDate();
+				});
+
+				function getCurrentDate() {
+					const today = new Date();
+					const year = today.getFullYear();
+					let month = (today.getMonth() + 1).toString().padStart(2, '0');
+					let day = today.getDate().toString().padStart(2, '0');
+					return `${year}-${month}-${day}`;
+				}
+			</script>
+
+	</body>
+</html>

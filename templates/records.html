@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Pets Vet Records</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="/" class="logo"><strong>Dogtor</strong> <span>Your Canine Health Companion</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/records">Vet Records</a></li>
+                <li><a href="/consultation">Vet Consultation</a></li>
+                <li><a href="/shop">Online Pet Store</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="/getstarted" class="button primary fit">Get Started</a></li>
+                <li><a href="/login" class="button fit">Log In</a></li>
+                <li><a href="/signup" class="button fit">Sign Up</a></li>
+            </ul>
+        </nav>
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Vet Records</h1>
+							</header>
+							<div class="content">
+								<p>Access and manage your pet's health records seamlessly. Keep track of vaccinations, 
+									medical history, and upcoming appointments. Ensure your furry friend receives the 
+									best care with our comprehensive vet records service.
+								</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+	<div id="main">
+
+			<!-- Pet Information Section -->
+			<section id="pet-info">
+				<div class="inner">
+					<header class="major">
+						<h2>Pet Information</h2>
+					</header>
+					<div class="content">
+						<div class="inner">
+							{% if pet %}
+						{% else %}
+							<p>No pet record found.</p>
+						{% endif %}
+							<h3> Name: {{ pet.name }}</h3>
+							<p>Date of Birth: {{ pet.dob.strftime('%Y-%m-%d') }}</p>
+							<p>Age: {{ current_year - pet.dob.year }} years</p>
+							<p>Breed: {{ pet.breed }}</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<!-- Vaccination Records Section -->
+			<section id="vaccination-records">
+				<div class="inner">
+				<header class="major">
+					<h2>Vaccination Records</h2>
+				</header>
+				<div class="content">
+					<div class="inner">
+					<p>Updated by vet after appointment.</p>
+					</div>
+				</div>
+				</div>
+			</section>
+			
+			<!-- Notes on Visits Section -->
+			<section id="visit-notes">
+				<div class="inner">
+				<header class="major">
+					<h2>Notes on Visits</h2>
+				</header>
+				<div class="content">
+					<div class="inner">
+					<p>Updated by vet after appointment.</p>
+					</div>
+				</div>
+				</div>
+			</section>
+
+			<!-- Reminder Form -->
+			<section id="reminder-form">
+				<div class="inner">
+					<header class="major">
+						<h2>Set a Reminder</h2>
+					</header>
+					<form id="reminder-form" method="POST" action="/set-reminder">
+						<div class="fields">
+							<div class="field half">
+								<label for="reminder-type">Type of Reminder</label>
+								<input type="text" name="reminder-type" id="reminder-type" required>
+							</div>
+							<div class="field half">
+								<label for="reminder-date-time">Date and Time</label>
+								<input type="datetime-local" name="reminder-date-time" id="reminder-date-time" required>
+							</div>
+							<div class="field">
+								<label for="reminder-notes">Notes</label>
+								<textarea name="reminder-notes" id="reminder-notes" rows="4"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Set Reminder" class="primary"></li>
+						</ul>
+					</form>
+				</div>
+			</section>
+
+  
+	<!-- Additional Sections or Content can be added as needed -->
+  
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<!-- Contact Information in three columns -->
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					<!-- Phone -->
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<span>(44) 7387201765</span>
+					</div>
+					<!-- Address -->
+					<div class="contact-method">
+						<h3>Address</h3>
+						<span>123 Dog Street<br>Barkington, BD 12345<br>United States</span>
+					</div>
+					<!-- Social Icons -->
+					<div class="contact-method">
+						<ul class="icons">
+							<li><a href="static/images/twitter.png" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="static/images/fb.png" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="static/images/instagram.png" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Quick links footer -->
+				<ul class="footer-links">
+					<li><a href="{{ url_for('homepage') }}">Home</a></li>
+					<li><a href="{{ url_for('records') }}">Records</a></li>
+					<li><a href="{{ url_for('consultation') }}">Consultation</a></li>
+					<li><a href="{{ url_for('shop') }}">Shop</a></li>
+					<li><a href="{{ url_for('nutrition') }}">Nutrition Guide</a></li>
+				</ul>
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; DOGTOR</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #1d2f68;
+    overflow: hidden; /* Ensures no scrolling */
+}
+
+h2, h3 {
+    color: #333;
+    text-align: center;
+    margin: 2px 0; /* Minimal margins for headers */
+    font-size: 14px; /* Reduced font size */
+}
+
+form {
+    background: white;
+    padding: 5px; /* Minimal padding */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 90%; /* Utilize more horizontal space */
+    max-width: 400px; /* Smaller max width */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    width: 100%; /* Full width of the form */
+    padding: 4px; /* Very small padding */
+    margin: 2px 0; /* Minimal margins */
+    box-sizing: border-box; /* Include padding and border in width/height */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px; /* Smaller font size */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 6px; /* Slightly less padding */
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #4a54e1;
+}
+
+/* More aggressive adjustments for very small screens */
+@media (max-width: 400px) {
+    form {
+        width: 100%; /* Allow the form to take full width */
+        padding: 3px; /* Even smaller padding */
+    }
+
+    h2, h3 {
+        font-size: 12px; /* Further reduce font size */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="date"],
+    input[type="submit"] {
+        font-size: 10px; /* Extremely small font sizes */
+    }
+}
