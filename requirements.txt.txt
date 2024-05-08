@@ -1,6 +1,0 @@
-Flask
-Flask-SQLAlchemy
-Jinja2
-Flask-Session
-passlib
-Flask-Mail
